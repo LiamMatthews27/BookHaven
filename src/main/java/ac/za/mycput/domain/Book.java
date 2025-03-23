@@ -1,3 +1,8 @@
+/*
+Author: Caitlin Malan
+Student Number: 230426271
+ */
+
 package ac.za.mycput.domain;
 
 public class Book {
