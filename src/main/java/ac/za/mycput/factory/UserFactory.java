@@ -1,7 +1,7 @@
 package ac.za.mycput.factory;
 
 import ac.za.mycput.domain.User;
-import ac.za.mycput.until.Helper;
+import ac.za.mycput.util.Helper;
 import java.time.LocalDate;
 
 /*Engetelo Assistance Mathebane

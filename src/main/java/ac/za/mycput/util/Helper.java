@@ -1,4 +1,4 @@
-package ac.za.mycput.until;
+package ac.za.mycput.util;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
@@ -42,4 +42,20 @@ public class Helper {
         LocalDate date  = LocalDate.of(year,month,day);
         return date;
     }
+
+    // Check if an integer value is null or invalid
+    public static boolean isNullOrInvalid(Integer value) {
+        return value == null || value <= 0;
+    }
+
+    // Determine if a fine should be issued
+    public static boolean isFineApplicable(LocalDate loanDueDate, LocalDate loanReturnDate) {
+        return loanReturnDate != null && loanReturnDate.isAfter(loanDueDate);
+    }
+
+    // Determine if loan is paid on time
+    public static boolean isLoanPaid(LocalDate loanDueDate, LocalDate loanReturnDate) {
+        return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
+    }
 }
+

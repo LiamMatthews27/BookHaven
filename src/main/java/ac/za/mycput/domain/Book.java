@@ -109,6 +109,17 @@ public class Book {
             return this;
         }
 
+        public Builder copy(Book book) {
+            this.bookISBN = book.getBookISBN();
+            this.bookYear = book.getBookYear();
+            this.bookTitle = book.getBookTitle();
+            this.bookPrice = book.getBookPrice();
+            this.bookGenre = book.getBookGenre();
+            this.bookPublisherName = book.getBookPublisherName();
+            this.bookAuthorName = book.getBookAuthorName();
+            return this;
+        }
+
         public Book build() {
             return new Book(this);
         }
