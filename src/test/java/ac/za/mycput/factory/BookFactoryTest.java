@@ -1,7 +1,7 @@
 package ac.za.mycput.factory;
 
 import ac.za.mycput.domain.Book;
-import org.junit.jupiter.api.Disabled;
+//import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,9 +56,9 @@ class BookFactoryTest {
         System.out.println(book3.toString());
     }
 
-    @Test
-    @Disabled
-    public void testNotImplementedYet(){
-        // Todo
-    }
+//    @Test
+//    @Disabled
+//    public void testNotImplementedYet(){
+//        // Todo
+//    }
 }
