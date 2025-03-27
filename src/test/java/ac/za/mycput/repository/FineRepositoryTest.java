@@ -64,7 +64,7 @@ class FineRepositoryTest {
 
     @Test
     void readFine_shouldReturnNullIfNotExists() {
-        Fine foundFine = fineRepository.read(999); // ID not created
+        Fine foundFine = fineRepository.read(999);
         System.out.println("Fine with ID 999: " + foundFine);
         assertNull(foundFine);
     }
@@ -77,7 +77,7 @@ class FineRepositoryTest {
         Fine updatedFine = new Fine.Builder()
                 .setFineID(3)
                 .setReturnID(103)
-                .setFineAmount(60.0) // Changing fine amount
+                .setFineAmount(60.0)
                 .setFineStatus("Damaged")
                 .setFineDate(LocalDate.now())
                 .setUserOfFine(testUser)
@@ -99,7 +99,7 @@ class FineRepositoryTest {
         boolean isDeleted = fineRepository.delete(4);
         System.out.println("Fine deleted: " + isDeleted);
         assertTrue(isDeleted);
-        assertNull(fineRepository.read(4)); // Ensure fine is deleted
+        assertNull(fineRepository.read(4));
     }
 
     @Test
