@@ -5,7 +5,7 @@ import ac.za.mycput.domain.Loan;
 
 import java.util.List;
 
-public interface IBookRepository extends IRepository<Book, Integer>{
+public interface ILoanRepository extends IRepository<Loan, Integer>{
 
-    List<Book> getAll();
+    List<Loan> getAll();
 }
