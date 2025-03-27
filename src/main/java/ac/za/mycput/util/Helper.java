@@ -57,5 +57,32 @@ public class Helper {
     public static boolean isLoanPaid(LocalDate loanDueDate, LocalDate loanReturnDate) {
         return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
     }
+
+    public static LocalDate getReservationDates(String reservationID) {
+        int year = Integer.parseInt(reservationID.substring(0,2));
+        int month =Integer.parseInt(reservationID.substring(2,4));
+        int day = Integer.parseInt(reservationID.substring(4,6));
+        LocalDate date  = LocalDate.of(year,month,day);
+        return date;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
