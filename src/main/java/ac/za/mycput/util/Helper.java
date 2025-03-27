@@ -57,5 +57,17 @@ public class Helper {
     public static boolean isLoanPaid(LocalDate loanDueDate, LocalDate loanReturnDate) {
         return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
