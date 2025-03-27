@@ -46,7 +46,6 @@ class LoanRepositoryTest {
                 .setLoanDueDate(loan.getLoanDueDate())
                 .setLoanReturnDate(loan.getLoanReturnDate())
                 .setBookLoanAmount(loan.getBookLoanAmount() + 1)
-                .setFineAmount(loan.getFineAmount())
                 .setLoanStatus(loan.isLoanStatus())
                 .build();
 
