@@ -1,44 +1,43 @@
-package ac.za.mycput.domain;
-
 /*
 Author: Engetelo Assistance Mathebane
 Student Number: 230227767
- */
-
+*/
+package ac.za.mycput.domain;
 
 import java.time.LocalDate;
 
 public class User {
-
     private int userId;
+    private String userIdentityNo;  // Changed to String
     private String userName;
     private String userSurname;
-    private LocalDate userDateOfBirth;
     private String userEmail;
     private String userAddress;
-    private Book bookBorrowed; //relationship between user and a book
-    private BookReservation bookReservation ;
-    // private Fine fine; //for a composition relationship between user and fine
-    // private Loan loan; // for a relationship between user and loan
+    private LocalDate dateOfBirth;
+    private Book bookBorrowed; // Relationship between user and a book not created
+    private BookReservation bookReservation;//relationship between a use and book, not created yet
 
-    public User(){
 
-    }
+    public User() {}
 
-    public User(Builder builder) {
-        this.userId = builder.userId;
+    private User(Builder builder) {
+        this.userId =builder.userId;
+        this.userIdentityNo = builder.userIdentityNo;
         this.userName = builder.userName;
         this.userSurname = builder.userSurname;
-        this.userDateOfBirth = builder.userDateOfBirth;
         this.userEmail = builder.userEmail;
         this.userAddress = builder.userAddress;
+        this.dateOfBirth = builder.dateOfBirth;
         this.bookBorrowed = builder.bookBorrowed;
         this.bookReservation = builder.bookReservation;
     }
 
+    public String getUserId() {
+        return userIdentityNo;
+    }
 
-    public int getUserId() {
-        return userId;
+    public String getUserIdentityNo() {
+        return userIdentityNo;
     }
 
     public String getUserName() {
@@ -49,16 +48,16 @@ public class User {
         return userSurname;
     }
 
-    public LocalDate getUserDateOfBirth() {
-        return userDateOfBirth;
-    }
-
     public String getUserEmail() {
         return userEmail;
     }
 
     public String getUserAddress() {
         return userAddress;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public Book getBookBorrowed() {
@@ -69,43 +68,42 @@ public class User {
         return bookReservation;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
                 "userId=" + userId +
+                ", userIdentityNo='" + userIdentityNo + '\'' +
                 ", userName='" + userName + '\'' +
                 ", userSurname='" + userSurname + '\'' +
-                ", userDateOfBirth=" + userDateOfBirth +
                 ", userEmail='" + userEmail + '\'' +
                 ", userAddress='" + userAddress + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
                 ", bookBorrowed=" + bookBorrowed +
                 ", bookReservation=" + bookReservation +
                 '}';
     }
+
     public static class Builder {
-
         private int userId;
-
+        private String userIdentityNo;  // Changed to String
         private String userName;
-
         private String userSurname;
-
-        private LocalDate userDateOfBirth;
-
         private String userEmail;
-
         private String userAddress;
+        private LocalDate dateOfBirth;
+        private Book bookBorrowed;
+        private BookReservation bookReservation;
 
-        private Book bookBorrowed; //relationship between user and a book
-
-        private BookReservation bookReservation ;//relationship between user and reservation
-
-        //private Fine fine; //for a composition relationship between user and fine
-
-        // private Loan loan; // for a relationship between user and loan
 
         public Builder setUserId(int userId) {
             this.userId = userId;
+            return this;
+        }
+
+
+        public Builder setUserIdentityNo(String userIdentityNo) {
+            this.userIdentityNo = userIdentityNo;
             return this;
         }
 
@@ -124,20 +122,19 @@ public class User {
             return this;
         }
 
-        public Builder setUserDateOfBirth(LocalDate userDateOfBirth) {
-            this.userDateOfBirth = userDateOfBirth;
+        public Builder setUserEmail(String userEmail) {
+            this.userEmail = userEmail;
             return this;
         }
 
-        public Builder setUserEmail(String userEmail) {
-            this.userEmail = userEmail;
+        public Builder setDateOfBirth(LocalDate dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
             return this;
         }
 
         public Builder setBookBorrowed(Book bookBorrowed) {
             this.bookBorrowed = bookBorrowed;
             return this;
-
         }
 
         public Builder setBookReservation(BookReservation bookReservation) {
@@ -145,15 +142,15 @@ public class User {
             return this;
         }
 
-
         public Builder copy(User user) {
-            this.userId =user.userId;
+            this.userId = user.userId;
+            this.userIdentityNo = user.userIdentityNo;
             this.userName = user.userName;
-            this.userSurname= user.userSurname;
-            this.userDateOfBirth= user.userDateOfBirth;
+            this.userSurname = user.userSurname;
             this.userEmail = user.userEmail;
-            this.userAddress =user.userAddress;
-            this.bookBorrowed =user.bookBorrowed;
+            this.userAddress = user.userAddress;
+            this.dateOfBirth = user.dateOfBirth;
+            this.bookBorrowed = user.bookBorrowed;
             this.bookReservation = user.bookReservation;
             return this;
         }
@@ -162,8 +159,4 @@ public class User {
             return new User(this);
         }
     }
-
 }
-
-
-
