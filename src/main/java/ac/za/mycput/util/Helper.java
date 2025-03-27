@@ -65,5 +65,15 @@ public class Helper {
     public static boolean isLoanPaid(LocalDate loanDueDate, LocalDate loanReturnDate) {
         return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
     }
+    // Check if reservation start date is before end date
+    public static boolean isReservationDateValid(LocalDate startDate, LocalDate endDate) {
+        return startDate != null && endDate != null && startDate.isBefore(endDate);
+    }
+
+    // Check if reservation has expired (end date is in the past)
+    public static boolean isReservationExpired(LocalDate endDate) {
+        return endDate != null && endDate.isBefore(LocalDate.now());
+    }
+
 }
 
