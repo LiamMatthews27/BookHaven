@@ -5,7 +5,7 @@ import ac.za.mycput.domain.Fine;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FineRepository implements IFineRepository<Fine, Integer> { // Changed String to Integer
+public class FineRepository implements IFineRepository<Fine, Integer> {
 
     private static IFineRepository<Fine, Integer> repository = null;
     private List<Fine> fineList;

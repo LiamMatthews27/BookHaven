@@ -20,18 +20,4 @@ public class FineFactory {
                 .build();
     }
 
-    public static Fine createOverdueFine(int fineID, int returnID, User user, Loan loan, LocalDate fineDate) {
-
-        return createFine(fineID, returnID, 5.0, "Overdue", fineDate, user, loan);
-    }
-
-    public static Fine createDamagedBookFine(int fineID, int returnID, User user, Loan loan, LocalDate fineDate) {
-
-        return createFine(fineID, returnID, 50.0, "Damaged", fineDate, user, loan);
-    }
-
-    public static Fine createLostBookFine(int fineID, int returnID, User user, Loan loan) {
-
-        return createFine(fineID, returnID, 1000.0, "Lost", LocalDate.now(), user, loan);
-    }
 }
