@@ -6,7 +6,7 @@ Student Number: 230227767
 package ac.za.mycput.factory;
 
 import ac.za.mycput.domain.User;
-import ac.za.mycput.until.Helper;
+import ac.za.mycput.util.Helper;
 import java.time.LocalDate;
 
 public class UserFactory {
