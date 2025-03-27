@@ -11,7 +11,7 @@ public class Loan {
     private int bookLoanAmount;
     private int fineAmount;  // New field for fine amount
 
-    private Loan(Builder builder) {
+    public Loan(Builder builder) {
         this.loanId = builder.loanId;
         this.loanDate = builder.loanDate;
         this.loanDueDate = builder.loanDueDate;
