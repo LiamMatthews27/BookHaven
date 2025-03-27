@@ -5,54 +5,31 @@ import java.time.LocalDate;
 
 public class Fine {
 
-    private String loanID;
-    private String libraryISIL;
-    private String bookISBN;
-    private String userId;
-    private LocalDate issueDate;
-    private LocalDate returnDate;
+    private int fineID;
+    private int returnID;
     private double fineAmount;
     private String fineStatus;
-    private String fineReason;
-
-    private Fine() {}
+    private LocalDate fineDate;
+    private User userOfFine;
+    private Loan loanOfFine;
 
 
     private Fine(Builder builder) {
-        this.loanID = builder.loanID;
-        this.libraryISIL = builder.libraryISIL;
-        this.bookISBN = builder.bookISBN;
-        this.userId = builder.userId;
-        this.issueDate = builder.issueDate;
-        this.returnDate = builder.returnDate;
+        this.fineID = builder.fineID;
+        this.returnID = builder.returnID;
         this.fineAmount = builder.fineAmount;
         this.fineStatus = builder.fineStatus;
-        this.fineReason = builder.fineReason;
+        this.fineDate = builder.fineDate;
+        this.userOfFine = builder.userOfFine;
+        this.loanOfFine = builder.loanOfFine;
     }
 
-
-    public String getLoanID() {
-        return loanID;
+    public int getFineID() {
+        return fineID;
     }
 
-    public String getLibraryISIL() {
-        return libraryISIL;
-    }
-
-    public String getBookISBN() {
-        return bookISBN;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public LocalDate getIssueDate() {
-        return issueDate;
-    }
-
-    public LocalDate getReturnDate() {
-        return returnDate;
+    public int getReturnID() {
+        return returnID;
     }
 
     public double getFineAmount() {
@@ -63,64 +40,48 @@ public class Fine {
         return fineStatus;
     }
 
-    public String getFineReason() {
-        return fineReason;
+    public LocalDate getFineDate() {
+        return fineDate;
+    }
+
+    public User getUserOfFine() {
+        return userOfFine;
+    }
+
+    public Loan getLoanOfFine() {
+        return loanOfFine;
     }
 
 
     @Override
     public String toString() {
         return "Fine{" +
-                "loanID='" + loanID + '\'' +
-                ", libraryISIL='" + libraryISIL + '\'' +
-                ", bookISBN='" + bookISBN + '\'' +
-                ", userId='" + userId + '\'' +
-                ", issueDate=" + issueDate +
-                ", returnDate=" + returnDate +
+                "fineID=" + fineID +
+                ", returnID=" + returnID +
                 ", fineAmount=" + fineAmount +
                 ", fineStatus='" + fineStatus + '\'' +
-                ", fineReason='" + fineReason + '\'' +
+                ", fineDate=" + fineDate +
+                ", userOfFine=" + userOfFine +
+                ", loanOfFine=" + loanOfFine +
                 '}';
     }
 
     public static class Builder {
-        private String loanID;
-        private String libraryISIL;
-        private String bookISBN;
-        private String userId;
-        private LocalDate issueDate;
-        private LocalDate returnDate;
+        private int fineID;
+        private int returnID;
         private double fineAmount;
         private String fineStatus = "Pending";
-        private String fineReason;
+        private LocalDate fineDate;
+        private User userOfFine;
+        private Loan loanOfFine;
 
-        public Builder setLoanID(String loanID) {
-            this.loanID = loanID;
+        public Builder setFineID(int fineID) {
+            this.fineID = fineID;
             return this;
         }
 
-        public Builder setLibraryISIL(String libraryISIL) {
-            this.libraryISIL = libraryISIL;
-            return this;
-        }
-
-        public Builder setBookISBN(String bookISBN) {
-            this.bookISBN = bookISBN;
-            return this;
-        }
-
-        public Builder setUserId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-        public Builder setIssueDate(LocalDate issueDate) {
-            this.issueDate = issueDate;
-            return this;
-        }
-
-        public Builder setReturnDate(LocalDate returnDate) {
-            this.returnDate = returnDate;
+        public Builder setReturnID(int returnID) {
+            this.returnID = returnID;
             return this;
         }
 
@@ -134,26 +95,25 @@ public class Fine {
             return this;
         }
 
-        public Builder setFineReason(String fineReason) {
-            this.fineReason = fineReason;
+        public Builder setFineDate(LocalDate fineDate) {
+            this.fineDate = fineDate;
             return this;
         }
 
-        public Builder copy(Fine fine) {
-            this.loanID = fine.loanID;
-            this.libraryISIL = fine.libraryISIL;
-            this.bookISBN = fine.bookISBN;
-            this.userId = fine.userId;
-            this.issueDate = fine.issueDate;
-            this.returnDate = fine.returnDate;
-            this.fineAmount = fine.fineAmount;
-            this.fineStatus = fine.fineStatus;
-            this.fineReason = fine.fineReason;
+        public Builder setUserOfFine(User userOfFine) {
+            this.userOfFine = userOfFine;
             return this;
         }
+
+        public Builder setLoanOfFine(Loan loanOfFine) {
+            this.loanOfFine = loanOfFine;
+            return this;
+        }
+
 
         public Fine build() {
             return new Fine(this);
         }
     }
+
 }
