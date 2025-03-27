@@ -6,8 +6,6 @@ import ac.za.mycput.domain.User;
 import ac.za.mycput.util.Helper;
 import java.time.LocalDate;
 
-
-
 /*
 Author: Fhumulani Moses Makungo
 Student Number: 230787932
@@ -21,12 +19,6 @@ public class BookReservationFactory {
             Book book,
             User user) {
 
-        // Validate reservationID
-        if (Helper.isNullOrEmpty(reservationID)) {
-            throw new IllegalArgumentException("Reservation ID cannot be null or empty");
-        }
-
-        // Validate required fields
         if (reservationStartDate == null || reservationEndDate == null) {
             throw new IllegalArgumentException("Reservation dates cannot be null");
         }
@@ -37,15 +29,19 @@ public class BookReservationFactory {
             throw new IllegalArgumentException("User cannot be null");
         }
 
-        // Create and return a valid BookReservation object
+
         return new BookReservation.Builder()
                 .setReservationID(reservationID)
                 .setReservationStartDate(reservationStartDate)
                 .setReservationEndDate(reservationEndDate)
                 .setReservationStatus(reservationStatus)
-                //.setBook(book)
-                //.setUser(user)
+                .setBook(book)
+                .setUser(user)
                 .build();
-
     }
+
+
 }
+
+
+

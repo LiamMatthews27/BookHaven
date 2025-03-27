@@ -1,7 +1,7 @@
 package ac.za.mycput.domain;
 
 /*
-Author: KodeKnack
+Author: Fhumulani Moses Makungo
 Student Number: 230787932
  */
 import java.time.LocalDate;
@@ -14,9 +14,6 @@ public class BookReservation {
     private Book book;
     private User user;
 
-
-    public BookReservation() {
-    }
 
     public BookReservation (Builder builder) {
         this.reservationID = builder.reservationID;
@@ -99,8 +96,9 @@ public class BookReservation {
             return this;
         }
 
-        public void setBook(Book book) {
+        public Builder setBook(Book book) {
             this.book = book;
+            return this;
         }
 
         public Builder setUser(User user) {
