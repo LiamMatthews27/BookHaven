@@ -1,6 +1,9 @@
 /*
+Book.java
+Book model class
 Author: Caitlin Malan
 Student Number: 230426271
+Date: 23 March 2025
  */
 
 package ac.za.mycput.domain;
