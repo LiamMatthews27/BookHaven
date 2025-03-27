@@ -1,33 +1,37 @@
 package ac.za.mycput.factory;
 
 import ac.za.mycput.domain.Fine;
+import ac.za.mycput.domain.Loan;
+import ac.za.mycput.domain.User;
 
 import java.time.LocalDate;
 
 public class FineFactory {
 
-    public static Fine createFine(String loanID, String libraryISIL, String bookISBN, String userId, LocalDate returnDate, LocalDate issueDate, double fineAmount, String fineReason) {
+    public static Fine createFine(int fineID, int returnID, double fineAmount, String fineStatus, LocalDate fineDate, User user, Loan loan) {
         return new Fine.Builder()
-                .setLoanID(loanID)
-                .setLibraryISIL(libraryISIL)
-                .setBookISBN(bookISBN)
-                .setUserId(userId)
-                .setReturnDate(returnDate)
-                .setIssueDate(issueDate)
+                .setFineID(fineID)
+                .setReturnID(returnID)
                 .setFineAmount(fineAmount)
-                .setFineReason(fineReason)
+                .setFineStatus(fineStatus)
+                .setFineDate(fineDate)
+                .setUserOfFine(user)
+                .setLoanOfFine(loan)
                 .build();
     }
 
-    public static Fine createOverdueFine(String loanID, String libraryISIL, String bookISBN, String userId, LocalDate returnDate, LocalDate issueDate) {
-        return createFine(loanID, libraryISIL, bookISBN, userId, returnDate, issueDate, 5.0, "Overdue"); // Example amount
+    public static Fine createOverdueFine(int fineID, int returnID, User user, Loan loan, LocalDate fineDate) {
+
+        return createFine(fineID, returnID, 5.0, "Overdue", fineDate, user, loan);
     }
 
-    public static Fine createDamagedBookFine(String loanID, String libraryISIL, String bookISBN, String userId, LocalDate returnDate, LocalDate issueDate) {
-        return createFine(loanID, libraryISIL, bookISBN, userId, returnDate, issueDate, 50.0, "Damaged book"); // Example amount
+    public static Fine createDamagedBookFine(int fineID, int returnID, User user, Loan loan, LocalDate fineDate) {
+
+        return createFine(fineID, returnID, 50.0, "Damaged", fineDate, user, loan);
     }
 
-    public static Fine createLostBookFine(String loanID, String libraryISIL, String bookISBN, String userId) {
-        return createFine(loanID, libraryISIL, bookISBN, userId, LocalDate.now(), LocalDate.now(), 1000.0, "Lost"); // Example amount
+    public static Fine createLostBookFine(int fineID, int returnID, User user, Loan loan) {
+
+        return createFine(fineID, returnID, 1000.0, "Lost", LocalDate.now(), user, loan);
     }
 }
