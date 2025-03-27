@@ -58,13 +58,16 @@ public class Helper {
         return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
     }
 
-    public static LocalDate getReservationDates(String id) {
-        int year = Integer.parseInt(id.substring(0,2));
-        int month =Integer.parseInt(id.substring(2,4));
-        int day = Integer.parseInt(id.substring(4,6));
+    public static LocalDate getReservationDates(String reservationID) {
+        int year = Integer.parseInt(reservationID.substring(0,2));
+        int month =Integer.parseInt(reservationID.substring(2,4));
+        int day = Integer.parseInt(reservationID.substring(4,6));
         LocalDate date  = LocalDate.of(year,month,day);
         return date;
     }
+
+
+
 
 
 
