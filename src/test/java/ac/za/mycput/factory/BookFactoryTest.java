@@ -1,3 +1,11 @@
+/*
+BookFactoryTest.java
+Book factory test class
+Author: Caitlin Malan
+Student Number: 230426271
+Date: 26 March 2025
+ */
+
 package ac.za.mycput.factory;
 
 import ac.za.mycput.domain.Book;
@@ -12,7 +20,7 @@ class BookFactoryTest {
             1,
             2013,
             "The Willow Man",
-            23.99,
+            5.99,
             "Fiction",
             "The Penguin",
             "Max Forth");
@@ -21,7 +29,7 @@ class BookFactoryTest {
             2,
             2024,
             "Bright Side of You",
-            23.99,
+            60.99,
             "Romance",
             "HarperCollins",
             "Lily Seaworth");
@@ -43,15 +51,13 @@ class BookFactoryTest {
     }
 
     @Test
-    public void testCreateBookWithAllAtrributes() {
+    public void testCreateBookWithAllAttributes() {
         assertNotNull(book2);
         System.out.println(book2.toString());
     }
 
     @Test
     public void testCreateBookThatFails(){
-//        fail();
-
         assertNotNull(book3);
         System.out.println(book3.toString());
     }

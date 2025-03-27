@@ -7,6 +7,7 @@ import java.time.LocalDate;
 public class Helper {
 
     public static boolean isNullOrEmpty(String str) {
+      
         return str == null || str.isEmpty();
     }
 
@@ -51,5 +52,66 @@ public class Helper {
     }
 
 
+}
+        if (str.isEmpty() || str == null)
+            return true;
+        return false;
+    }
+
+    public static boolean isNullOrInvalid(int num) {
+        if (num <= 0)
+            return true;
+        return false;
+    }
+
+    public static boolean isNullOrInvalid(double num) {
+        if (num <= 0)
+            return true;
+        return false;
+    }
+   
+
+ 
+    // Check if an integer value is null or invalid
+    public static boolean isNullOrInvalid(Integer value) {
+        return value == null || value <= 0;
+    }
+
+    // Determine if a fine should be issued
+    public static boolean isFineApplicable(LocalDate loanDueDate, LocalDate loanReturnDate) {
+        return loanReturnDate != null && loanReturnDate.isAfter(loanDueDate);
+    }
+
+    // Determine if loan is paid on time
+    public static boolean isLoanPaid(LocalDate loanDueDate, LocalDate loanReturnDate) {
+        return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
+    }
+
+    public static LocalDate getReservationDates(String reservationID) {
+        int year = Integer.parseInt(reservationID.substring(0,2));
+        int month =Integer.parseInt(reservationID.substring(2,4));
+        int day = Integer.parseInt(reservationID.substring(4,6));
+        LocalDate date  = LocalDate.of(year,month,day);
+        return date;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
+
