@@ -1,11 +1,3 @@
-/*
-BookHaven.java
-Book model class
-Author: Caitlin Malan
-Student Number: 230426271
-Date: 23 March 2025
- */
-
 package ac.za.mycput.util;
 
 import org.apache.commons.validator.routines.EmailValidator;
@@ -65,15 +57,29 @@ public class Helper {
     public static boolean isLoanPaid(LocalDate loanDueDate, LocalDate loanReturnDate) {
         return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
     }
-    // Check if reservation start date is before end date
-    public static boolean isReservationDateValid(LocalDate startDate, LocalDate endDate) {
-        return startDate != null && endDate != null && startDate.isBefore(endDate);
+
+    public static LocalDate getReservationDates(String id) {
+        int year = Integer.parseInt(id.substring(0,2));
+        int month =Integer.parseInt(id.substring(2,4));
+        int day = Integer.parseInt(id.substring(4,6));
+        LocalDate date  = LocalDate.of(year,month,day);
+        return date;
     }
 
-    // Check if reservation has expired (end date is in the past)
-    public static boolean isReservationExpired(LocalDate endDate) {
-        return endDate != null && endDate.isBefore(LocalDate.now());
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

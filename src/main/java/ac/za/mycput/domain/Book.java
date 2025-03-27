@@ -16,7 +16,6 @@ public class Book {
     private String bookGenre;
     private String bookPublisherName;
     private String bookAuthorName;
-//    private Library libraryInfromation;
 
     private Book(Builder builder) {
         this.bookYear = builder.bookYear;
