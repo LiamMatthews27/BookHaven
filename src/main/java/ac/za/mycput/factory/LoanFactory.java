@@ -1,3 +1,11 @@
+/*
+LoanFactory.java
+LoanFactory model class
+Author: Liam Matthews
+Student Number: 221818340
+Date: 23 March 2025
+ */
+
 package ac.za.mycput.factory;
 
 import ac.za.mycput.domain.Loan;

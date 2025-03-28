@@ -1,5 +1,11 @@
+/*
+Loan.java
+Loan model class
+Author: Liam Matthews
+Student Number: 221818340
+Date: 23 March 2025
+ */
 package ac.za.mycput.domain;
-
 import java.time.LocalDate;
 
 public class Loan {
