@@ -42,6 +42,9 @@ public class Helper {
     public static boolean isNullOrInvalid(Integer value) {
         return value == null || value <= 0;
     }
+    public static boolean isNullOrInvalid(String str) {
+        return str == null || str.trim().isEmpty();
+    }
 
     // Check if a fine should be applied based on the loan dates
     public static boolean isFineApplicable(LocalDate loanDueDate, LocalDate loanReturnDate) {
