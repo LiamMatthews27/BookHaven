@@ -16,6 +16,8 @@ public class Loan {
     private boolean loanStatus;
     private int bookLoanAmount;
 
+    public Loan() {
+    }
 
     public Loan(Builder builder) {
         this.loanId = builder.loanId;

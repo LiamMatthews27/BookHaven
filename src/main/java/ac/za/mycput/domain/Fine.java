@@ -1,6 +1,7 @@
 package ac.za.mycput.domain;
 
-// *Zintle Mgqongose* //
+// *Zintle Mgqongose*
+// 214280829
 import java.time.LocalDate;
 
 public class Fine {
@@ -13,6 +14,8 @@ public class Fine {
     private User userOfFine;
     private Loan loanOfFine;
 
+    public Fine() {
+    }
 
     private Fine(Builder builder) {
         this.fineID = builder.fineID;

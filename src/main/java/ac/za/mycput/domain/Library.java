@@ -1,5 +1,8 @@
 package ac.za.mycput.domain;
 
+// Author : esihle mlinjana
+// Student Number: 222441712
+
 public class Library {
 
     private String libraryID;

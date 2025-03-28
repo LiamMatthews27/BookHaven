@@ -22,7 +22,7 @@ public class User {
 
     public User() {}
 
-    private User(Builder builder) {
+    public User(Builder builder) {
         this.userId =builder.userId;
         this.userIdentityNo = builder.userIdentityNo;
         this.userName = builder.userName;

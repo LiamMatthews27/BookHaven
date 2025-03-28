@@ -46,15 +46,16 @@ public class BookReservationRepository implements IBookReservationRepository{
     public BookReservation update(BookReservation bookReservation) {
         String reservationID = bookReservation.getReservationID();
         BookReservation bookReservationOld = read(reservationID);
-        if (bookReservationOld == null)
-            return null;
+        if (bookReservationOld != null) {
 
-        boolean success = bookReservationList.remove(bookReservationOld);
-        if (success) {
-            if (bookReservationList.add(bookReservation))
-                return bookReservation;
+            boolean success = bookReservationList.remove(bookReservationOld);
+            if (success) {
+                if (bookReservationList.add(bookReservation))
+                    return bookReservation;
+            }
+            return null;
         }
-        return null;
+        return bookReservationOld;
     }
 
     @Override
