@@ -1,6 +1,8 @@
 package ac.za.mycput.util;
 
 import org.apache.commons.validator.routines.EmailValidator;
+
+import java.time.DateTimeException;
 import java.time.LocalDate;
 
 public class Helper {
@@ -73,6 +75,31 @@ public class Helper {
 
     //Determines it is the correct number written
     public static boolean isValidPhoneNumber(String phoneNumber) {
-           return phoneNumber != null && phoneNumber.matches("\\+27\\d{9}");
+        return phoneNumber != null && phoneNumber.matches("\\+27\\d{9}");
     }
+
+    public static LocalDate getReservationDates(String reservationID) {
+        // Check if reservationID is exactly 6 characters
+        if (reservationID == null || reservationID.length() != 6) {
+            throw new IllegalArgumentException("Invalid reservation ID: Must be exactly 6 characters (YYMMDD).");
+        }
+
+        try {
+            int year = Integer.parseInt(reservationID.substring(0, 2)) + 2000;
+            int month = Integer.parseInt(reservationID.substring(2, 4));
+            int day = Integer.parseInt(reservationID.substring(4, 6));
+
+            // Validate and return LocalDate
+            return LocalDate.of(year, month, day);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid reservation ID: Must contain only numbers.");
+        } catch (DateTimeException e) {
+            throw new IllegalArgumentException("Invalid reservation ID: Month or day is out of range.");
+        }
+
+
+
+        //this is a comment
+    }
+
 }
