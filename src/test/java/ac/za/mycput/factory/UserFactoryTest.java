@@ -15,28 +15,30 @@ class UserFactoryTest {
     private final static User user1 = UserFactory.createUser(456,
                                                              "0501171031087",
                                                              "Engetelo",
-                                                             "Mathebane");
+                                                             "Mathebane",
+                                                             "Engetelo@gmail.com",
+                                                              "Cape town Hout Bay");
 
-    private final static User user2 = UserFactory.createUser(314,
+    private final User user2 = UserFactory.createUser(      314,
                                                              "0408031051089",
                                                              "Catlin",
                                                              "Malan",
-                                                             "Cmalangmail.com",
-                                                             "Cape town CBD");  // a user with a valid email
+                                                             "CatlinM23gmail.com",
+                                                             "Century city Axis 23");  // a user with a valid email
 
     private final static User user3 = UserFactory.createUser(989,
-                                                             "9902241131086",
-                                                             "Rasheed",
-                                                             "Benjamin",
-                                                             "Rasheed@gmail.com",
-                                                             "Cape Town Foreshore st loop");
+                                                             "9902241110867",
+                                                             "Zintle",
+                                                             "Mgqongose",
+                                                             "Zintle235@gmail.com",
+                                                             "Cape town 22 Reebeik street");
 
     private final static User user4 = UserFactory.createUser(213,
                                                               "03076087",
-                                                              "Ginny",
-                                                              "Mendusa",
-                                                              "Ginny@gmail.com",
-                                                             "Freedom Park 23 Junction");  // a user with an invalid ID
+                                                              "Liam",
+                                                              "Metthews",
+                                                              "MattewsL@gmail.com",
+                                                             "Newlands second junction 156 st");  // a user with an invalid ID
 
     @Test
     @Order(1)

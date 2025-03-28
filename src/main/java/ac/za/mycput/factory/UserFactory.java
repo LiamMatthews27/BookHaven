@@ -5,6 +5,9 @@ Student Number: 230227767
 */
 package ac.za.mycput.factory;
 
+import ac.za.mycput.domain.Book;
+import ac.za.mycput.domain.Fine;
+import ac.za.mycput.domain.Loan;
 import ac.za.mycput.domain.User;
 import ac.za.mycput.util.Helper;
 import java.time.LocalDate;
@@ -14,17 +17,18 @@ public class UserFactory {
     public static User createUser(int userId,
                                   String userIdentityNo,
                                   String userName,
-                                  String userSurname) {
+                                  String userSurname,
+                                  String userEmail)
+                                   {
 
         if (Helper.isNullOrEmpty(userIdentityNo) ||
                 Helper.isNullOrEmpty(userName) ||
-                Helper.isNullOrEmpty(userSurname ))
+                Helper.isNullOrEmpty(userSurname ) )
             return null;
 
-        if( Helper.isNullOrInvalid(userId)
-
-        )
+        if( Helper.isNullOrInvalid(userId ))
             return null;
+
         if (!Helper.validateID(userIdentityNo))
             return null;
 
@@ -33,6 +37,8 @@ public class UserFactory {
                 .setUserIdentityNo(userIdentityNo)
                 .setUserName(userName)
                 .setUserSurname(userSurname)
+                .setUserEmail(userEmail)
+
                 .build();
     }
 
@@ -42,6 +48,7 @@ public class UserFactory {
                                   String userSurname,
                                   String userEmail,
                                   String userAddress)
+
     {
         if (
                 Helper.isNullOrEmpty(userIdentityNo) ||
@@ -74,4 +81,6 @@ public class UserFactory {
                 .setDateOfBirth(dateOfBirth)
                 .build();
     }
+
+
 }

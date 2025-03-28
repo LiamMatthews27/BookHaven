@@ -16,6 +16,8 @@ public class User {
     private LocalDate dateOfBirth;
     private Book bookBorrowed; // Relationship between user and a book not created
     private BookReservation bookReservation;//relationship between a use and book, not created yet
+    private Fine fine;
+    private Loan loan;
 
 
     public User() {}
@@ -30,6 +32,8 @@ public class User {
         this.dateOfBirth = builder.dateOfBirth;
         this.bookBorrowed = builder.bookBorrowed;
         this.bookReservation = builder.bookReservation;
+        this.fine = builder.fine;
+        this.loan = builder.loan;
     }
 
     public String getUserId() {
@@ -68,6 +72,13 @@ public class User {
         return bookReservation;
     }
 
+    public Fine getFine() {
+        return fine;
+    }
+
+    public Loan getLoan() {
+        return loan;
+    }
 
     @Override
     public String toString() {
@@ -81,6 +92,8 @@ public class User {
                 ", dateOfBirth=" + dateOfBirth +
                 ", bookBorrowed=" + bookBorrowed +
                 ", bookReservation=" + bookReservation +
+                ", fine=" + fine +
+                ", loan=" + loan +
                 '}';
     }
 
@@ -94,6 +107,8 @@ public class User {
         private LocalDate dateOfBirth;
         private Book bookBorrowed;
         private BookReservation bookReservation;
+        private Fine fine;
+        private  Loan loan;
 
 
         public Builder setUserId(int userId) {
@@ -142,6 +157,16 @@ public class User {
             return this;
         }
 
+        public Builder setFine(Fine fine) {
+            this.fine = fine;
+            return this;
+        }
+
+        public Builder setLoan(Loan loan) {
+            this.loan = loan;
+            return  this;
+        }
+
         public Builder copy(User user) {
             this.userId = user.userId;
             this.userIdentityNo = user.userIdentityNo;
@@ -152,6 +177,8 @@ public class User {
             this.dateOfBirth = user.dateOfBirth;
             this.bookBorrowed = user.bookBorrowed;
             this.bookReservation = user.bookReservation;
+            this.fine = user.fine;
+            this.loan = user.loan;
             return this;
         }
 

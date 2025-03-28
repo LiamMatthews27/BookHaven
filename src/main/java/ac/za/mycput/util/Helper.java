@@ -63,8 +63,7 @@ public class Helper {
         int year = Integer.parseInt(id.substring(0,2));
         int month =Integer.parseInt(id.substring(2,4));
         int day = Integer.parseInt(id.substring(4,6));
-        LocalDate date  = LocalDate.of(year,month,day);
-
+        LocalDate date = LocalDate.of(year, month ,day);
         int currentYear = 2025;
         int currentCentury = (currentYear / 100) * 100;
 
