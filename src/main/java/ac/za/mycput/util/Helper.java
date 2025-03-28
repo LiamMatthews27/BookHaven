@@ -2,24 +2,35 @@ package ac.za.mycput.util;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 
 public class Helper {
 
+    // Check if the string is null or empty
     public static boolean isNullOrEmpty(String str) {
-      
-        return str == null || str.isEmpty();
+        if (str == null || str.isEmpty()) {
+            return true;
+        }
+        return false;
     }
 
+    // Check if a numeric value is invalid (<= 0)
     public static boolean isNullOrInvalid(int num) {
-        return num <= 0;
+        if (num <= 0) {
+            return true;
+        }
+        return false;
     }
 
+    // Check if a numeric value is invalid (<= 0)
     public static boolean isNullOrInvalid(double num) {
-        return num <= 0;
+        if (num <= 0) {
+            return true;
+        }
+        return false;
     }
 
-    //Engetelo  Helper for a user class
     // Email validation
     public static boolean isValidEmail(String email) {
         EmailValidator validator = EmailValidator.getInstance();
@@ -27,11 +38,32 @@ public class Helper {
     }
 
 
+    // Check if an integer value is null or invalid (i.e., <= 0)
+    public static boolean isNullOrInvalid(Integer value) {
+        return value == null || value <= 0;
+    }
+
+    // Check if a fine should be applied based on the loan dates
+    public static boolean isFineApplicable(LocalDate loanDueDate, LocalDate loanReturnDate) {
+        return loanReturnDate != null && loanReturnDate.isAfter(loanDueDate);
+    }
+
+    // Check if loan was paid on time
+    public static boolean isLoanPaid(LocalDate loanDueDate, LocalDate loanReturnDate) {
+        return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
+    }
+
+    //Determines it is the correct number written
+    public static boolean isValidPhoneNumber(String phoneNumber) {
+        return phoneNumber != null && phoneNumber.matches("\\+27\\d{9}");
+    }
+
     // Getting date of birth using userId number
     public static LocalDate getDateOfBirth(String id) {
-        int year = Integer.parseInt(id.substring(0, 2));
-        int month = Integer.parseInt(id.substring(2, 4));
-        int day = Integer.parseInt(id.substring(4, 6));
+        int year = Integer.parseInt(id.substring(0,2));
+        int month =Integer.parseInt(id.substring(2,4));
+        int day = Integer.parseInt(id.substring(4,6));
+        LocalDate date  = LocalDate.of(year,month,day);
 
         int currentYear = 2025;
         int currentCentury = (currentYear / 100) * 100;
@@ -39,7 +71,6 @@ public class Helper {
         int birthYear = (year <= currentYear % 100) ? (currentCentury + year) : (currentCentury - 100 + year);
         return LocalDate.of(birthYear, month, day);
     }
-
 
 
     // Validate if userId number is 13 digits
@@ -51,67 +82,24 @@ public class Helper {
         return true;
     }
 
-
-}
-        if (str.isEmpty() || str == null)
-            return true;
-        return false;
-    }
-
-    public static boolean isNullOrInvalid(int num) {
-        if (num <= 0)
-            return true;
-        return false;
-    }
-
-    public static boolean isNullOrInvalid(double num) {
-        if (num <= 0)
-            return true;
-        return false;
-    }
-   
-
- 
-    // Check if an integer value is null or invalid
-    public static boolean isNullOrInvalid(Integer value) {
-        return value == null || value <= 0;
-    }
-
-    // Determine if a fine should be issued
-    public static boolean isFineApplicable(LocalDate loanDueDate, LocalDate loanReturnDate) {
-        return loanReturnDate != null && loanReturnDate.isAfter(loanDueDate);
-    }
-
-    // Determine if loan is paid on time
-    public static boolean isLoanPaid(LocalDate loanDueDate, LocalDate loanReturnDate) {
-        return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
-    }
-
     public static LocalDate getReservationDates(String reservationID) {
-        int year = Integer.parseInt(reservationID.substring(0,2));
-        int month =Integer.parseInt(reservationID.substring(2,4));
-        int day = Integer.parseInt(reservationID.substring(4,6));
-        LocalDate date  = LocalDate.of(year,month,day);
-        return date;
-    }
+        // Check if reservationID is exactly 6 characters
+        if (reservationID == null || reservationID.length() != 6) {
+            throw new IllegalArgumentException("Invalid reservation ID: Must be exactly 6 characters (YYMMDD).");
+        }
 
+        try {
+            int year = Integer.parseInt(reservationID.substring(0, 2)) + 2000;
+            int month = Integer.parseInt(reservationID.substring(2, 4));
+            int day = Integer.parseInt(reservationID.substring(4, 6));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            // Validate and return LocalDate
+            return LocalDate.of(year, month, day);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid reservation ID: Must contain only numbers.");
+        } catch (DateTimeException e) {
+            throw new IllegalArgumentException("Invalid reservation ID: Month or day is out of range.");
+ }
 
 }
-
+}
