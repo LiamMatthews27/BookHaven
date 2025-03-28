@@ -70,9 +70,4 @@ public class Helper {
     public static boolean isLoanPaid(LocalDate loanDueDate, LocalDate loanReturnDate) {
         return loanReturnDate != null && !loanReturnDate.isAfter(loanDueDate);
     }
-
-    //Determines it is the correct number written
-    public static boolean isValidPhoneNumber(String phoneNumber) {
-           return phoneNumber != null && phoneNumber.matches("\\+27\\d{9}");
-    }
 }
