@@ -56,7 +56,6 @@ public class Helper {
     //Determines it is the correct number written
     public static boolean isValidPhoneNumber(String phoneNumber) {
         return phoneNumber != null && phoneNumber.matches("\\+27\\d{9}");
- 
     }
 
     // Getting date of birth using userId number
@@ -100,13 +99,7 @@ public class Helper {
             throw new IllegalArgumentException("Invalid reservation ID: Must contain only numbers.");
         } catch (DateTimeException e) {
             throw new IllegalArgumentException("Invalid reservation ID: Month or day is out of range.");
-        }
+ }
 
-    }
 }
-
-
-
-
-
-
+}
