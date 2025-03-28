@@ -1,6 +1,7 @@
 package ac.za.mycput.domain;
 
-// *Zintle Mgqongose* //
+// *Zintle Mgqongose*
+// 214280829
 import java.time.LocalDate;
 
 public class Fine {
