@@ -15,7 +15,7 @@ public class BookReservationRepositoryTest {
 
     private static IBookReservationRepository repository = BookReservationRepository.getRepository();
 
-    private BookReservation bookReservation = BookReservationFactory.createBookReservation("234000", "2025-03-29", "25", "");
+    private BookReservation bookReservation = BookReservationFactory.createBookReservation("234000");
 
     @Test
     void a_create() {
