@@ -5,16 +5,16 @@ import ac.za.mycput.domain.Fine;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FineRepository implements IFineRepository<Fine, String> {
+public class FineRepository implements IFineRepository<Fine, Integer> {
 
-    private static IFineRepository<Fine, String> repository = null;
+    private static IFineRepository<Fine, Integer> repository = null;
     private List<Fine> fineList;
 
     private FineRepository() {
         fineList = new ArrayList<>();
     }
 
-    public static IFineRepository<Fine, String> getRepository() {
+    public static IFineRepository<Fine, Integer> getRepository() {
         if (repository == null) {
             repository = new FineRepository();
         }
@@ -28,16 +28,16 @@ public class FineRepository implements IFineRepository<Fine, String> {
     }
 
     @Override
-    public Fine read(String loanID) {
+    public Fine read(Integer fineID) { 
         return fineList.stream()
-                .filter(fine -> fine.getLoanID().equals(loanID))
+                .filter(fine -> fine.getFineID() == fineID)
                 .findFirst()
                 .orElse(null);
     }
 
     @Override
     public Fine update(Fine fine) {
-        String id = fine.getLoanID();
+        Integer id = fine.getFineID();
         Fine existingFine = read(id);
         if (existingFine == null) {
             return null;
@@ -52,8 +52,8 @@ public class FineRepository implements IFineRepository<Fine, String> {
     }
 
     @Override
-    public boolean delete(String loanID) {
-        Fine fineToDelete = read(loanID);
+    public boolean delete(Integer fineID) {
+        Fine fineToDelete = read(fineID);
         if (fineToDelete == null) {
             return false;
         }

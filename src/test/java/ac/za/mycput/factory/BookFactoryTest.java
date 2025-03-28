@@ -9,7 +9,7 @@ Date: 26 March 2025
 package ac.za.mycput.factory;
 
 import ac.za.mycput.domain.Book;
-import org.junit.jupiter.api.Disabled;
+//import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +20,7 @@ class BookFactoryTest {
             1,
             2013,
             "The Willow Man",
-            5.99,
+            50.99,
             "Fiction",
             "The Penguin",
             "Max Forth");
@@ -39,7 +39,7 @@ class BookFactoryTest {
             2005,
             "January to December",
             23.99,
-            "Sci-fiction",
+            "The Raging Tarot",
             "HarperCollins",
             "Peter Underwave");
 
@@ -62,9 +62,9 @@ class BookFactoryTest {
         System.out.println(book3.toString());
     }
 
-    @Test
-    @Disabled
-    public void testNotImplementedYet(){
-        // Todo
-    }
+//    @Test
+//    @Disabled
+//    public void testNotImplementedYet(){
+//        // Todo
+//    }
 }
