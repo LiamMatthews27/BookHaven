@@ -1,6 +1,9 @@
 /*
+Book.java
+Book model class
 Author: Caitlin Malan
 Student Number: 230426271
+Date: 23 March 2025
  */
 
 package ac.za.mycput.domain;
@@ -13,7 +16,6 @@ public class Book {
     private String bookGenre;
     private String bookPublisherName;
     private String bookAuthorName;
-//    private Library libraryInfromation;
 
     private Book(Builder builder) {
         this.bookYear = builder.bookYear;

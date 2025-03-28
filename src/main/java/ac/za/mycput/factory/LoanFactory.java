@@ -5,7 +5,7 @@ import ac.za.mycput.util.Helper;
 import java.time.LocalDate;
 
 public class LoanFactory {
-    private static final int FINE_PER_BOOK = 350; // Fine per book
+   // Fine per book
 
     public static Loan createLoan(int loanId, LocalDate loanDate, LocalDate loanDueDate, LocalDate loanReturnDate, int bookLoanAmount) {
 
@@ -19,7 +19,7 @@ public class LoanFactory {
         boolean fineApplicable = Helper.isFineApplicable(loanDueDate, loanReturnDate);
         int fineAmount;
         if (fineApplicable) {
-            fineAmount = bookLoanAmount * FINE_PER_BOOK;
+            fineAmount = bookLoanAmount ;
         } else {
             fineAmount = 0;
         }
@@ -35,7 +35,6 @@ public class LoanFactory {
                 .setLoanReturnDate(loanReturnDate)
                 .setLoanStatus(loanStatus) // Set loan status based on fine applicability
                 .setBookLoanAmount(bookLoanAmount)
-                .setFineAmount(fineAmount)  // Set fine amount
                 .build();
     }
 }

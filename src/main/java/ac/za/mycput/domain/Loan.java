@@ -9,16 +9,16 @@ public class Loan {
     private LocalDate loanReturnDate;
     private boolean loanStatus;
     private int bookLoanAmount;
-    private int fineAmount;  // New field for fine amount
 
-    private Loan(Builder builder) {
+
+    public Loan(Builder builder) {
         this.loanId = builder.loanId;
         this.loanDate = builder.loanDate;
         this.loanDueDate = builder.loanDueDate;
         this.loanReturnDate = builder.loanReturnDate;
         this.loanStatus = builder.loanStatus;
         this.bookLoanAmount = builder.bookLoanAmount;
-        this.fineAmount = builder.fineAmount;
+
     }
 
     // Getters for all fields
@@ -46,9 +46,7 @@ public class Loan {
         return bookLoanAmount;
     }
 
-    public int getFineAmount() {
-        return fineAmount;
-    }
+
 
     @Override
     public String toString() {
@@ -59,7 +57,6 @@ public class Loan {
                 ", loanReturnDate=" + loanReturnDate +
                 ", loanStatus=" + loanStatus +
                 ", bookLoanAmount=" + bookLoanAmount +
-                ", fineAmount=" + fineAmount + // Display fine amount as well
                 '}';
     }
 
@@ -71,7 +68,7 @@ public class Loan {
         private LocalDate loanReturnDate;
         private boolean loanStatus;
         private int bookLoanAmount;
-        private int fineAmount; // New field for fine amount
+
 
         public Builder setLoanId(int loanId) {
             this.loanId = loanId;
@@ -97,21 +94,12 @@ public class Loan {
             this.loanStatus = loanStatus;
             return this;
         }
-
         public Builder setBookLoanAmount(int bookLoanAmount) {
             this.bookLoanAmount = bookLoanAmount;
             return this;
         }
-
-        public Builder setFineAmount(int fineAmount) { // New setter for fine amount
-            this.fineAmount = fineAmount;
-            return this;
-        }
-
         public Loan build() {
             return new Loan(this);
         }
     }
-
-
 }
