@@ -1,5 +1,11 @@
+/*
+Loan.java
+Loan model class
+Author: Liam Matthews
+Student Number: 221818340
+Date: 23 March 2025
+ */
 package ac.za.mycput.domain;
-
 import java.time.LocalDate;
 
 public class Loan {
@@ -10,6 +16,8 @@ public class Loan {
     private boolean loanStatus;
     private int bookLoanAmount;
 
+    public Loan() {
+    }
 
     public Loan(Builder builder) {
         this.loanId = builder.loanId;

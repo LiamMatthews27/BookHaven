@@ -13,6 +13,8 @@ public class Fine {
     private User userOfFine;
     private Loan loanOfFine;
 
+    public Fine() {
+    }
 
     private Fine(Builder builder) {
         this.fineID = builder.fineID;

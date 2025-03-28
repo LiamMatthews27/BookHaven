@@ -1,6 +1,11 @@
 package ac.za.mycput.repository;
-
-import ac.za.mycput.domain.Book;
+/*
+ILoanRepository.java
+ILoanRepository model class
+Author: Liam Matthews
+Student Number: 221818340
+Date: 23 March 2025
+ */
 import ac.za.mycput.domain.Loan;
 
 import java.util.List;
