@@ -20,7 +20,7 @@ class BookFactoryTest {
             1,
             2013,
             "The Willow Man",
-            5.99,
+            50.99,
             "Fiction",
             "The Penguin",
             "Max Forth");
@@ -39,7 +39,7 @@ class BookFactoryTest {
             2005,
             "January to December",
             23.99,
-            "Sci-fiction",
+            "The Raging Tarot",
             "HarperCollins",
             "Peter Underwave");
 
