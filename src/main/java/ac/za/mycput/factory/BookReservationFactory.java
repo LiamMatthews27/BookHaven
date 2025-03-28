@@ -12,9 +12,8 @@ public class BookReservationFactory {
             String reservationID,
             LocalDate reservationStartDate,
             LocalDate reservationEndDate,
-            boolean reservationStatus,
-            Book book,
-            User user) {
+            boolean reservationStatus
+           ) {
 
         if (reservationStartDate == null || reservationEndDate == null) {
             System.out.println("Invalid reservation dates provided. Reservation creation failed.");
@@ -24,22 +23,13 @@ public class BookReservationFactory {
             System.out.println("Invalid reservation ID. Reservation creation failed.");
             return null;
         }
-        if (book == null) {
-            System.out.println("Invalid book details. Reservation creation failed.");
-            return null;
-        }
-        if (user == null) {
-            System.out.println("Invalid user details. Reservation creation failed.");
-            return null;
-        }
+
 
         return new BookReservation.Builder()
                 .setReservationID(reservationID)
                 .setReservationStartDate(reservationStartDate)
                 .setReservationEndDate(reservationEndDate)
                 .setReservationStatus(reservationStatus)
-                .setBook(book)
-                .setUser(user)
                 .build();
     }
 
